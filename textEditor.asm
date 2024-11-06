@@ -28,15 +28,15 @@ CTEXT MACRO y:VARARG
     ENDM
 
 .data
-    ; <------------------- KOMUNIKATY B£ÊDÓW ------------------->
-    window_register_fail db  "B³¹d rejestracji okna",0
-    tit_error            db  "B³¹d",0
+    ; <------------------- KOMUNIKATY Bï¿½ï¿½Dï¿½W ------------------->
+    window_register_fail db  "Bï¿½ï¿½d rejestracji okna",0
+    tit_error            db  "Bï¿½ï¿½d",0
     
-    open_error           db  "Nie mo¿na otworzyæ pliku",0
-    size_error           db  "Nieprawid³owy rozmiar pliku",0
-    mem_error            db  "Za ma³o pamiêci",0
-    read_error           db  "B³¹d czytania z pliku",0
-    write_error          db  "B³¹d zapisu do pliku",0
+    open_error           db  "Nie moï¿½na otworzyï¿½ pliku",0
+    size_error           db  "Nieprawidï¿½owy rozmiar pliku",0
+    mem_error            db  "Za maï¿½o pamiï¿½ci",0
+    read_error           db  "Bï¿½ï¿½d czytania z pliku",0
+    write_error          db  "Bï¿½ï¿½d zapisu do pliku",0
 
     ; <------------------------ OBIEKTY ------------------------>
     NazwaKlasy db "Klasa Okienka",0
@@ -44,7 +44,7 @@ CTEXT MACRO y:VARARG
     
     button db "BUTTON",0
     
-    button_open_text db "Otwórz",0
+    button_open_text db "Otwï¿½rz",0
     ID_BUTTON_OPEN BYTE 101
     
     button_save_text db "Zapisz",0
@@ -59,7 +59,7 @@ CTEXT MACRO y:VARARG
     hInstancee dd ?
     lpCmdLinee dd ?
     
-    path BYTE "A:\masm32"
+    path BYTE "A:\masm32\essa"
     hwnd_text HWND 0
     ; <--------------------------------------------------------->
 
@@ -74,7 +74,7 @@ start:
     invoke WinMain, hInstancee, NULL, lpCmdLinee, SW_SHOWDEFAULT
     invoke ExitProcess, eax
     
-    ;___________________________________ G£ÓWNA PROCEDURA ____________________________________
+    ;___________________________________ Gï¿½ï¿½WNA PROCEDURA ____________________________________
 
     WinMain proc hInst :HINSTANCE, hPrevInstance :HINSTANCE, lpCmdLine :LPSTR, nCmdShow :dword
 
@@ -86,7 +86,7 @@ start:
         local hFont         :HFONT
         local wc            :WNDCLASSEX
         
-        ;==================================== WYPE£NIANIE KLASY OKNA ====================================
+        ;==================================== WYPEï¿½NIANIE KLASY OKNA ====================================
         mov wc.cbSize, sizeof WNDCLASSEX
         mov wc.style, CS_HREDRAW or CS_VREDRAW or CS_BYTEALIGNWINDOW
         mov wc.lpfnWndProc, WndProc
@@ -134,7 +134,7 @@ start:
         invoke ShowWindow, hwnd, nCmdShow
         invoke UpdateWindow, hwnd
 
-        ;========================================= PÊTLA KOMUNIKATÓW =====================================
+        ;========================================= Pï¿½TLA KOMUNIKATï¿½W =====================================
 
         MessageLoop:
         
@@ -151,7 +151,7 @@ start:
 
     WinMain endp
     
-    ;_______________________________ OBS£UGA ZDARZEÑ _______________________________
+    ;_______________________________ OBSï¿½UGA ZDARZEï¿½ _______________________________
     
     WndProc proc hwnd :HWND, msg :UINT, wParam :WPARAM, lParam :LPARAM
     
@@ -164,7 +164,7 @@ start:
         local dwZapisane          :DWORD
         local hPlik               :HANDLE
 
-        ;==================================== WYPE£NIANIE STRUKTURY ====================================
+        ;==================================== WYPEï¿½NIANIE STRUKTURY ====================================
         
         invoke RtlZeroMemory, addr ofn, sizeof OPENFILENAME
         invoke RtlZeroMemory, addr filePath, MAX_PATH
